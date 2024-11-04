@@ -79,6 +79,7 @@ class QuestionController extends Controller
                 'question' => $question->question,
                 'question_type' => $question->questionType?->name,
                 'difficulty' =>  $question->difficultyLevel?->name,
+                'subject' => $question->subject?->name,
                 'choices' => $question->choices->map(function ($choice) {
                     return [
                         'A' => $choice->A,

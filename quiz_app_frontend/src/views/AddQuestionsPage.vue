@@ -143,27 +143,35 @@
           <v-card
             variant="outlined"
             class="ma-5"
-            v-for="item in 10"
+            v-for="(item, index) in questions"
             :key="item"
           >
             <div class="pa-5">
               <div class="float-start">
                 <div class="d-flex align-center">
                   <div class="me-2">
-                    <h3>
-                      <b> Question #{{ item }}</b>
-                    </h3>
+                    <h2>
+                      <b> Question #{{ index + 1 }}</b>
+                    </h2>
                   </div>
-                  <v-chip> Easy </v-chip>
+                  <v-chip class="me-2"> {{ item.difficulty }} </v-chip>
                 </div>
               </div>
               <br />
               <div class="float-end">
                 <v-icon color="">mdi mdi-close</v-icon>
               </div>
-
-              <div class="mt-8">
-                lorem sdadasasdsadasddadasdadasdasdasdasddas
+              <br />
+              <v-card>
+                <div class="pa-7">
+                  {{ item.question }}
+                </div>
+              </v-card>
+              <div class="pa-3">
+                <v-chip class="me-2" rounded="lg"> Answer</v-chip>
+                <b>
+                  {{ item.correct_answer }}
+                </b>
               </div>
               <br />
             </div>
@@ -222,17 +230,19 @@ export default {
       this.getSubjectQuestions(newValue);
     },
     "payload.questionType": function (newValue) {
+      this.resetFields();
+    },
+  },
+  methods: {
+    resetFields() {
       this.payload.correctAnswer = null;
       this.payload.question = null;
       this.payload.difficulty = null;
       this.labels.forEach((label) => {
         this.payload.choice[label] = null;
       });
-
       this.selectedChoice = null;
     },
-  },
-  methods: {
     async getSubjectQuestions(selectedSubject) {
       let response = await getQuestions(selectedSubject);
       console.log(response);
@@ -281,6 +291,8 @@ export default {
       // If all checks pass, proceed with save logic
       alert("All fields are valid. Proceeding with save...");
       let response = await createQuestion(payload);
+      this.getSubjectQuestions(payload.selectedSubject);
+      this.resetFields();
     },
 
     maxFunction(add) {
