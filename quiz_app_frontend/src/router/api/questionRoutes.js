@@ -14,6 +14,19 @@ const createQuestion = async (payload) => {
   }
 };
 
+const removeQuestion = async (question_id) => {
+  console.log(question_id);
+  try {
+    let response = await axios.get(
+      URL + "remove_question?question_id=" + question_id
+    );
+    console.log(response.data);
+    return response.data;
+  } catch (err) {
+    return err.response;
+  }
+};
+
 const getQuestions = async (subject) => {
   console.log(subject);
   try {
@@ -24,4 +37,4 @@ const getQuestions = async (subject) => {
     return err.response;
   }
 };
-export { createQuestion, getQuestions };
+export { createQuestion, getQuestions, removeQuestion };

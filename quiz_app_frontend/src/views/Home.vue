@@ -95,6 +95,11 @@ export default {
           name: "Take Test",
           path: "test",
         },
+
+        {
+          name: "Review",
+          path: "review",
+        },
       ],
     };
   },

@@ -27,7 +27,7 @@
     <v-row v-if="payload.selectedSubject">
       <v-col cols="12" lg="6">
         <div>
-          <v-card variant="outlined" class="my-5">
+          <v-card color="transparent" style="border: 1px solid" class="my-5">
             <div class="pa-10">
               <div class="mb-5">
                 <h2>
@@ -141,7 +141,8 @@
       <v-col>
         <div class="mt-12" style="height: 90vh; overflow-y: scroll">
           <v-card
-            variant="outlined"
+            color="transparent"
+            style="border: 1px solid"
             class="ma-5"
             v-for="(item, index) in questions"
             :key="item"
@@ -159,12 +160,16 @@
               </div>
               <br />
               <div class="float-end">
-                <v-icon color="">mdi mdi-close</v-icon>
+                <v-icon @click="deleteQuestion(item.id)" color=""
+                  >mdi mdi-close</v-icon
+                >
               </div>
               <br />
               <v-card>
                 <div class="pa-7">
-                  {{ item.question }}
+                  <p style="font-size: 11pt">
+                    {{ item.question }}
+                  </p>
                 </div>
               </v-card>
               <div class="pa-3">
@@ -188,12 +193,12 @@
   </v-container>
 </template>
 <script>
-import { createQuestion, getQuestions } from "../router/api/questionRoutes.js"; // Adjust the path as needed
 import {
-  getSubjects,
-  addNewSubject,
-  removeSubject,
-} from "../router/api/subjectRoutes.js"; // Adjust the path as needed
+  createQuestion,
+  getQuestions,
+  removeQuestion,
+} from "../router/api/questionRoutes.js"; // Adjust the path as needed
+import { getSubjects } from "../router/api/subjectRoutes.js"; // Adjust the path as needed
 export default {
   data() {
     return {
@@ -234,6 +239,11 @@ export default {
     },
   },
   methods: {
+    async deleteQuestion(selectedQuestion) {
+      let response = await removeQuestion(selectedQuestion);
+      this.getSubjectQuestions(this.payload.selectedSubject);
+      console.log(response);
+    },
     resetFields() {
       this.payload.correctAnswer = null;
       this.payload.question = null;

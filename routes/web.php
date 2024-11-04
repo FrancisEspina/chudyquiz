@@ -12,6 +12,8 @@ Route::get('/', function () {
 
 Route::middleware(['cors'])->group(function () {
     Route::get('/create_question', [QuestionController::class, 'createQuestion']);
+    Route::get('/remove_question', [QuestionController::class, 'removeQuestion']);
+    
     Route::get('/get_questions', [QuestionController::class, 'getSubjectQuestions']);
 
     Route::get('/get_subjects', [SubjectController::class, 'getAllSubjects']);

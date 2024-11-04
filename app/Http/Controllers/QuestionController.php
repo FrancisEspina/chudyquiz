@@ -100,4 +100,18 @@ class QuestionController extends Controller
             'data' => $questions
         ]);
     }
+
+    public function removeQuestion(Request $request)
+    {
+        $validatedData = $request->validate([
+            'question_id' => 'required|string',
+        ]);
+
+        $delete_question = Question::where('id', $validatedData['question_id'])->first();
+        $delete_question->delete();
+
+        return response()->json([
+            'message' => 'Question deleted successfully!',
+        ]);
+    }
 }
