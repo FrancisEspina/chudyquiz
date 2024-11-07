@@ -1,42 +1,54 @@
 <template>
   <v-container
     class="d-flex align-center justify-center"
-    style="min-height: 80vh"
+    style="min-height: 70vh"
   >
     <div class="text-center">
       <v-icon size="100">mdi mdi-cat</v-icon>
-      <h1 style="font-size: 90px">ChudyQUIZ</h1>
+      <h1 style="font-size: 3em">ChudyQUIZ</h1>
+
+      <p style="font-size: 15pt">I Love You! Study well 🩷😘</p>
+      <br />
 
       <div class="mx-auto">
-        <v-btn
-          v-for="button in buttons"
-          :key="button"
-          :to="button.path"
-          class="mx-3"
-        >
-          {{ button.name }}
-        </v-btn>
-
-        <v-btn @click="dialogBox = true" class="mx-3"> Subjects </v-btn>
+        <v-row no-gutters>
+          <v-col cols="12" lg="3" v-for="button in buttons" :key="button">
+            <v-btn width="150px" height="45px" :to="button.path" class="ma-2">
+              {{ button.name }}
+            </v-btn>
+          </v-col>
+          <v-col cols="12" lg="3">
+            <v-btn
+              width="150px"
+              height="45px"
+              @click="dialogBox = true"
+              class="ma-2"
+            >
+              Topics
+            </v-btn>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <v-dialog v-model="dialogBox" width="500px">
       <v-card>
         <div class="pa-6">
-          <h3>Subjects</h3>
+          <h3>Topics</h3>
           <br />
-          <v-row class="d-flex">
+
+          <v-row class="d-flex text">
             <v-col cols="8">
+              <h5 class="ms-3">Add Topic</h5>
               <v-text-field
                 v-model="addSubject"
                 density="default"
-                label="Subject Name"
+                label="Topic Name"
               ></v-text-field>
             </v-col>
             <v-col>
               <v-btn
                 @click="addNewSubject(addSubject)"
-                class="mt-3"
+                class="mt-7"
                 append-icon="mdi mdi-check"
                 color="green"
                 variant="outlined"
@@ -45,8 +57,10 @@
             </v-col>
             <!-- remvoe -->
             <v-col cols="8">
+              <h5 class="ms-3">Remove Topic</h5>
+
               <v-select
-                label="Select Subject"
+                label="Select Topic"
                 v-model="removeSubject"
                 variant="outlined"
                 :items="subjects"
@@ -57,7 +71,7 @@
             <v-col>
               <v-btn
                 @click="removeSelectedSubject(removeSubject)"
-                class="mt-3"
+                class="mt-7"
                 append-icon="mdi mdi-close"
                 color="red"
                 variant="outlined"

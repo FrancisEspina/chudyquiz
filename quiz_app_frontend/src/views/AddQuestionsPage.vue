@@ -1,20 +1,29 @@
 <template>
   <v-container>
     <div class="text-center">
-      <v-icon size="40">mdi mdi-cat</v-icon>
-      <h1 style="font-size: 24px">ChudyQUIZ</h1>
+      <router-link
+        class="text-decoration-none"
+        :style="{ color: 'inherit' }"
+        to="/"
+      >
+        <div>
+          <v-icon size="40">mdi mdi-cat</v-icon>
+          <h1 style="font-size: 24px">ChudyQUIZZER</h1>
+        </div>
+      </router-link>
+
       <br />
     </div>
     <v-btn
+      :color="null"
       variant="outlined"
       prepend-icon="mdi mdi-arrow-left"
-      color="white"
       :to="'/'"
       >Home</v-btn
     >
     <div class="mt-5">
       <v-select
-        label="Select a Subject"
+        label="Select Topic"
         v-model="payload.selectedSubject"
         width="300px"
         :items="subjects"
@@ -299,7 +308,6 @@ export default {
       // Check choices
 
       // If all checks pass, proceed with save logic
-      alert("All fields are valid. Proceeding with save...");
       let response = await createQuestion(payload);
       this.getSubjectQuestions(payload.selectedSubject);
       this.resetFields();
