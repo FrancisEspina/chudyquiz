@@ -146,6 +146,30 @@
             </div>
           </v-card>
         </div>
+        <v-card variant="outlined">
+          <div class="pa-10">
+            <div class="mb-5">
+              <h2>
+                <b>Seed from CSV </b>
+              </h2>
+            </div>
+            <v-file-input
+              v-model="csv"
+              variant="outlined"
+              rounded="xl"
+              label="Upload CSV"
+            ></v-file-input>
+            <v-card-actions class="justify-end">
+              <v-btn
+                :disabled="csv != null ? false : true"
+                append-icon="mdi mdi-seed"
+                variant="flat"
+                @click="seed(csv)"
+                >SEED</v-btn
+              >
+            </v-card-actions>
+          </div>
+        </v-card>
       </v-col>
       <v-col>
         <div class="mt-12" style="height: 90vh; overflow-y: scroll">
@@ -196,21 +220,24 @@
 
     <v-container v-else class="justify-center align-center">
       <div class="text-center">
-        <h1 style="opacity: 0.4">Select a Subject</h1>
+        <h1 style="opacity: 0.4">Select a Topic</h1>
       </div>
     </v-container>
   </v-container>
 </template>
 <script>
+import Papa from "papaparse";
 import {
   createQuestion,
   getQuestions,
   removeQuestion,
+  seedQuestions,
 } from "../router/api/questionRoutes.js"; // Adjust the path as needed
 import { getSubjects } from "../router/api/subjectRoutes.js"; // Adjust the path as needed
 export default {
   data() {
     return {
+      csv: null,
       questions: [],
       max: 4,
       labels: ["A", "B", "C", "D", "E", "F"], // Define your labels here
@@ -248,6 +275,25 @@ export default {
     },
   },
   methods: {
+    seed(file) {
+      Papa.parse(file, {
+        header: true, // Reads the first row as headers
+        skipEmptyLines: true, // Skips any empty rows in the CSV
+        complete: async (result) => {
+          let csvData = result.data;
+          if (result.data.length > 0) {
+            let csvHeaders = Object.keys(result.data[0]); //
+            let response = await seedQuestions(csvData);
+            this.getSubjectQuestions(this.payload.selectedSubject);
+            console.log(response);
+            this.csv = null;
+          }
+        },
+        error: (error) => {
+          console.error("Error parsing CSV:", error);
+        },
+      });
+    },
     async deleteQuestion(selectedQuestion) {
       let response = await removeQuestion(selectedQuestion);
       this.getSubjectQuestions(this.payload.selectedSubject);

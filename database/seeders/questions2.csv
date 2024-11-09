@@ -1,0 +1,90 @@
+QID,question,A,B,C,D,answer,reason,difficulty,qtype,topic
+1,"I. M borrowed P10,000 cash from P and issued a promissory note which states “I promise to pay P10,000 to P.” Subsequently, P assigned the promissory note in exchange for laptop to H. Afterwards, H assigned the promissory note to M for P10,000.
+
+What mode of extinguishing obligation is present?",,,,,Merger,,2,identify,TEST
+2,"B is liable to deliver a specific cellphone to L. At the maturity of the obligation, they agreed to change the prestation to specific laptop.
+
+What mode of extinguishing obligation is present?",,,,,Novation,,2,identify,TEST
+3,"ABC Incorporated deposited P1,000,000 cash to Banco Filipino under savings deposit. Afterwards, Banco Filipino granted a loan to ABC Incorporated with maturity value of P1,000,000 that will mature on October 4, 2024. The loan payable to Incorporated matured on October 4, 2024. 
+
+What mode of extinguishing obligation is present?",,,,,Compensation,,2,identify,TEST
+4,"D borrowed P5,000 cash from C. Afterwards, D and C became friends. Out of generosity, C forgave the obligation of D. D accepted the said cancellation of his obligation.  
+
+What mode of extinguishing obligation is present?",,,,,Remission,,2,identify,TEST
+5,"To have the effect of payment, debts in money should be made in currency stipulated by the parties or:",In currency which is legal tender in the Philippines.,By the delivery of manager’s check or cashier’s check,By the delivery of promissory note or bills of exchange.,By the delivery of a property as equivalent of payment,In currency which is legal tender in the Philippines.,,2,mcq,TEST
+6,Mrs. Moh sold her car for Php2m to Mrs. Koh. There was no fixed date for the performance of the obligations of both parties. The obligations of Mrs. Moh as vendor is:,To wait for Mrs. Koh to pay Php2m and deliver the car,To deliver the car immediately as this is a perfected contract.,To deliver the car after Mrs. Koh demands for its delivery.,To rescind the contract because no time or date is fixed for the performance of their respective obligations.,To wait for Mrs. Koh to pay Php2m and deliver the car,,2,mcq,TEST
+7,1st Statement - The conveyance of ownership of a thing as an accepted equivalent of performance is called dation in payment which is cumulative and governed by the law on sales 2nd Statement – A potestative condition will render an obligation void.,Both statements are wrong,Both statements are correct,"1st is correct, 2nd is wrong","1st is wrong, 2nd is correct",Both statements are wrong,,2,mcq,TEST
+8,"Clara owes Crisistomo Php1m, guaranteed by Cecilio. Crisistomo assigned his credit to Cristina. Cristina assigned her credit to Criselda. Criselda assigned her credit to Clara. The obligation of Clara is extinguished because of:",Compensation,Confusion,Novation,Rescission,Confusion,,2,mcq,TEST
+9,"Fidel is indebted to Crispin in the amount of Php1m. Fidel voluntarily  and even after the prescription of the debt, paid Crispin on January 27, 2023. Now Fidel would like to recover what he paid. In this case: ",Fidel must institute a case for recovery under the principle of solutio indebite,Under the law the creditor has no right to demand payment of an obligation after it has prescribed and therefore Crispin has unjustly enriched himself,Fidel cannot recover because payment is a mode of extinguishing the monetary obligation.,Fidel cannot recover because what he fulfilled is a natural obligation,Fidel cannot recover because what he fulfilled is a natural obligation,,2,mcq,TEST
+10,"Atoy, Bitoy and Caloy executed a promissory note binding themselves to pay P9,000 to Tito, Vic and Joey. The note is now due and demandable. Can the creditors proceed against Atoy alone for the payment of the entire debt? ","No, each creditor can collect only P3,000 from Atoy.","Yes, any of the creditors can collect P9,000 from Atoy.","No, each creditor can collect only P1,000 from A","Yes, since the promissory note is silent with respect to the rights of the creditors, the obligation is presumed to be solidary.","No, each creditor can collect only P1,000 from A",,2,mcq,TEST
+11,"Boy Favaya, a jeepney driver, driving recklessly, caused serious physical injuries to his passenger Biboy and pedestrian Diday. As a result, which of the following is not correct? ",Biboy may proceed against Boy for culpa criminal,Biboy may proceed against Boy for culpa contractual,Diday may proceed against Boy for culpa aquiliana,Diday may proceed against Boy for culpa criminal,Biboy may proceed against Boy for culpa contractual,,2,mcq,TEST
+12,Which of the following relative to the fruits of a determinate thing is false? ,The creditor has a right to the fruits of the thing subject matter of the obligation from the perfection of the contract,"The creditor has a right to the fruits of the thing subject matter of the obligation from the time
+the fruits are physically delivered to him",The creditor has a right to the fruits of the thing subject matter of the obligation from the moment of the meeting of the minds,"The creditor has a right to the fruits of the thing subject matter of the obligation from
+the time the obligation to deliver the thing arises","The creditor has a right to the fruits of the thing subject matter of the obligation from
+the time the obligation to deliver the thing arises",,2,mcq,TEST
+13,"Buknoy promised to give to Totoy a specific dog on Christmas day in year 2022. As of today, Buknoy has not made the delivery. Is Buknoy in delay? ","No, because Buknoy has no capacity to deliver",Yes because Buknoy’s liability is due and demandable,"No, because Totoy has not demanded the performance of the obligation",Yes because the debtor loses the benefit of the period and the obligation is demandable at once,"No, because Totoy has not demanded the performance of the obligation",,2,mcq,TEST
+14,"Bob promised to give his Nissan X-trail car if Baby will pass the CPA board exams on October 2022. Before the results of the exams, the car was destroyed by typhoon “Dagit”.  Baby passed the October 2022 CPA board exams. Is Bob’s obligation extinguished?",Yes because the car was lost thru a fortuitous event,No. Bob must give another car,Yes if Bob will deliver the value of the car without liability to pay damages,No because the period was established for the benefit of the debtor,Yes because the car was lost thru a fortuitous event,,2,mcq,TEST
+15,Which of the following is an accessory thing? ,milk from a cow,mango tree,pendant of a necklace ,video camera,pendant of a necklace ,,2,mcq,TEST
+16,"Bok borrowed P10,000 from Boy secured by a mortgage contract. Without the knowledge of Bok, Bong paid Boy P10,000 to release the debt of Bok. As a result: ",Bong can recover what he paid from Bok.,Bong cannot recover what he paid from Bok because the payment was made without the debtor’s consent,Bong can recover what he paid from Boy in case Bok is insolvent,Bong can foreclose the mortgage property of Bok,Bong can recover what he paid from Bok.,,2,mcq,TEST
+17,"Mario Magulang ordered Atoy, a ten-year old boy, to climb a slippery tree, and promised to share with him part of the fruits.  The boy fell and was killed.  Mario is liable for damages because of his fault or negligence, which is referred to as a  ",Delict.,Contract.,Quasi-delict.,Quasi-contract.,Quasi-delict.,,2,mcq,TEST
+18,"When the thing improves pending the fulfillment of the suspensive condition with the expense of the debtor, the improvement shall inure to the benefit of: ",the party who made the improvement ,partly by the debtor and partly by the credito,the debtor,the creditor,the creditor,,2,mcq,TEST
+19,"During the pendency of the criminal case against a thief, the car he stole was lost through an accidental fire. Prior to the accident, several demands were made for the owner to receive the return of the car, but the owner refused to receive the same without any reasonable ground. This will result to: ",extinguishment of the obligation to return the car because an accidental fire is always a fortuitous event.,extinguishment of the obligation to return the car because the owner is guilty of delay,extinguishment of the civil obligation because the value of the car will be converted into the number of days the thief will serve in prison.,"liability of the accused to pay the price of the car as the obligation will not be extinguished
+because the obligation proceeds from a criminal offense.",extinguishment of the obligation to return the car because the owner is guilty of delay,,2,mcq,TEST
+20,Fraud is distinguished from negligence,Responsibility arising therefrom is demandable,An action to enforce liability arising from a past act may be waived,There is a voluntary act,There is deliberate intention to cause damage or prejudice,There is deliberate intention to cause damage or prejudice,,2,mcq,TEST
+21,"If a borrower of a non-consumable lends the object to a third person, or saves his property instead of the thing borrowed, he shall be liable even in case of fortuitous event, because  ",The nature of the obligation requires the assumption of risk.,The parties have expressly stipulated such liability.,The law expressly so provides.,He is automatically guilty of legal delay,The law expressly so provides.,,2,mcq,TEST
+22,Not a requisite of stipulation pour autrui,The contracting parties must have clearly and deliberately conferred a favor upon third person,The stipulation must be part of the contract,The third person communicated his acceptance to the obligor before it revocation,There must be an agency between either of the parties and the third person,There must be an agency between either of the parties and the third person,,2,mcq,TEST
+23,"Real contracts, such as deposit, pledge, and commodatum are not perfected until",Acceptance of the terms of the contract.,Consent of the contracting parties.,Delivery of the object of the obligation.,Contract must be in a public instrument.,Delivery of the object of the obligation.,,2,mcq,TEST
+24,"Damaso owes Tiago  Php2m payable on March 26, 2023. Which of the following statements is correct? ","If Damaso dies before the due date, Tiago cannot collect from the heirs of Damaso",If Damaso dies before the due date his obligation is not extinguished ,"If Tiago dies before the due date, his heirs cannot recover from Damaso ","If both parties die, the heirs of of Tiago will be liable to the heirs of Damaso","If Damaso dies before the due date, Tiago cannot collect from the heirs of Damaso",,2,mcq,TEST
+25,One is not a rescissible contract ,Those undertaken in fraud of creditors when the latter cannot in any other manner collect the claims due them,Those which are entered into by guardians wherever the words whom they represent suffer lesion by more than ¼ of the value of the things which are the object thereof,"Those agreed upon in representation of absentees, if the latter suffer a lesion of more than ¼ of the value of the object of the contract",Those where one of the parties is incapable of giving consent to a contract,Those where one of the parties is incapable of giving consent to a contract,,2,mcq,TEST
+26,"January 2, 2023 Tasyo signed a letter addressed and delivered to Consuelo. The terms   of the former are:
+
+a) An offer to sell a 1hectare farm lot for Php100k
+b) Date of payment will be on or before Feb. 1, 2023
+c) Upon payment of the Php100k, the parties will execute and sign a Deed of Sale. 
+On Feb. 6, 2023, Tasyo sent a letter to Consuelo asking for a new price of Php250k. On Feb. 10, 2023 Tasyo received the letter of acceptance of Consuelo to the Jan. 2, 2023 letter of Tasyo. Can Consuelo compel Tasyo to accept the Php100k and make him sign and execute a Deed of Sale?","No, Tasyo was able to withdraw his offer before acceptance ","Yes, Tasyo is already estopped by his signed letter and offer.","Yes, there was actual meeting of the minds.","Yes, the contract is perfected.","No, Tasyo was able to withdraw his offer before acceptance ",,2,mcq,TEST
+27,"Obligation No. 1 -  X obliged himself to give to Y his brand new Omega watch if the latter can make a circle that is at the same time a square.
+Obligation No. 2 - X obliged himself to give to Y his brand new Omega watch if Juan will not rise from the dead","O1 - Valid
+O2 - Valid","O1 - Void
+O2 - Void","O1 - Valid
+O2 - Void","O1 - Void
+O2 - Valid","O1 - Void
+O2 - Valid",,2,mcq,TEST
+28,"The right of the creditor to exercise all the rights of his debtor to satisfy his claim, except rights which are inherent and personal on the part of the debtor. ",accion pauliana ,accion subrogatoria,accion causante,accion incidente,accion subrogatoria,,2,mcq,TEST
+29,"Selya sold to Delia a fake jewelry on July 1, 2020.  Delivery was made on August 1, 2020. Payment was made on September 1, 2021. On Feb 1, 2022, Delia discovered that the jewelry is fake. May Delia ask for the annulment of the contract on Feb 14, 2026? ",No more because the action has already prescribed.,"No more because the period for prescription will have to be reckoned from July 1, 2020",No because Leng should be considered to have been in estoppel in buying the watch,Yes because the right to sue against fraud does not prescribe,No more because the action has already prescribed.,,2,mcq,TEST
+30,"1st Statement – An offer must be absolute and acceptance must be certain before there can be meeting of minds between the parties.
+2nd Statement – Real contracts are not perfected by mere consent of the parties regarding the subject matter and the cause of the contract","1 - False
+2 - False","1 - False
+2 - True","1 - True
+2 - True","1 - True
+2 - False","1 - False
+2 - True",,2,mcq,TEST
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,

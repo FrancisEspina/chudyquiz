@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\QuestionType;
 use App\Models\Subject;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,18 +27,20 @@ class DatabaseSeeder extends Seeder
 
                 $questionId = DB::table('questions')->insertGetId([
                     'question' => $data[1],
-                    'qtype_id' => $data[9],
+                    'qtype_id' => QuestionType::where('name', $data[9])->value('id'),
                     'difficulty' => $data[8],
                     'subject_id' => Subject::where('name', $data[10])->value('id'),
                 ]);
 
-                DB::table('items')->insert([
-                    'question_id' => $questionId,
-                    'A' => $data[2],
-                    'B' => $data[3],
-                    'C' => $data[4],
-                    'D' => $data[5],
-                ]);
+                if ($data[2] != '') {
+                    DB::table('items')->insert([
+                        'question_id' => $questionId,
+                        'A' => $data[2],
+                        'B' => $data[3],
+                        'C' => $data[4],
+                        'D' => $data[5],
+                    ]);
+                }
 
                 DB::table('answers')->insert([
                     'question_id' => $questionId,

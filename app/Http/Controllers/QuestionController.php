@@ -19,6 +19,50 @@ class QuestionController extends Controller
         //
     }
 
+    public function seedQuestion(Request $request)
+    {
+        $validatedData = $request->validate([
+            'csv_data' => 'required|string',
+        ]);
+
+        $csv_data = json_decode($validatedData['csv_data'], true); // true to get an 
+
+        foreach ($csv_data as $data) {
+            $question = Question::create([
+                'question' => $data['question'],
+                'qtype_id' => QuestionType::where('name', $data['qtype'])->value('id'),
+                'difficulty' => intval($data['difficulty']),
+                'subject_id' => Subject::where('name', $data['topic'])->value('id'),
+            ]);
+
+            $question->save();
+
+            if ($data['A'] != "") {
+                $items = Item::create([
+                    'question_id' => $question->id,
+                    'A' => $data['A'],
+                    'B' => $data['B'],
+                    'C' => $data['C'],
+                    'D' => $data['D'],
+                ]);
+
+                $items->save();
+            }
+
+            $answer = Answer::create([
+                'question_id' => $question->id,
+                'answer' => $data['answer']
+            ]);
+
+            $answer->save();
+        }
+
+        return response()->json([
+            'message' => 'Data Seeded successfully!',
+            'data' => $csv_data
+        ]);
+    }
+
     public function createQuestion(Request $request)
     {
         // Validate the request data
