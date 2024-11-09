@@ -127,6 +127,7 @@
                   </v-col>
                 </v-row>
               </div>
+
               <!-- IDENTIFY -->
               <div v-else>
                 <div class="mt-8 ma-auto" style="width: 75%">
@@ -136,7 +137,15 @@
                       checkAnswer(null, questions[cardIndex], stringAnswer)
                     "
                   ></v-text-field>
+                  <div v-if="openOverlay" class="text-green">
+                    <h4>
+                      Correct Answer: {{ questions[cardIndex].correct_answer }}
+                    </h4>
+                  </div>
+                  <br />
+
                   <v-btn
+                    v-if="openOverlay == false"
                     @click="
                       checkAnswer(null, questions[cardIndex], stringAnswer)
                     "
@@ -147,6 +156,32 @@
             </div>
             <br />
           </v-card>
+
+          <div v-if="openRetake">
+            <v-card-actions class="mt-5 justify-center">
+              <v-btn
+                variant="tonal"
+                color="white"
+                to="/"
+                icon="mdi-home"
+              ></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn
+                append-icon="mdi mdi-refresh-circle"
+                variant="tonal"
+                color="white"
+                @click="retake"
+                >RETAKE</v-btn
+              >
+              <v-btn
+                append-icon="mdi mdi-open-in-new"
+                variant="tonal"
+                color="white"
+                @click="reloadPage()"
+                >NEW TEST</v-btn
+              >
+            </v-card-actions>
+          </div>
         </div>
 
         <div
@@ -191,7 +226,7 @@
       </v-btn>
     </div>
 
-    <v-dialog v-model="openResult" width="500px" persistent="true">
+    <v-dialog v-model="openResult" width="500px">
       <v-card style="border-radius: 50px" :rounded="'false'">
         <div class="pa-10 text-center">
           <h1>Test Results</h1>
@@ -305,6 +340,7 @@ export default {
       scoreTracker: 0,
       passedTest: false,
       openResult: false,
+      openRetake: false,
       stringAnswer: null,
       raw_questions: null,
       openOverlay: false,
@@ -376,11 +412,13 @@ export default {
         // FINISHED
         this.openOverlay = false;
         this.openResult = true;
+        this.openRetake = true;
         this.passedTest = this.score >= 75 ? true : false;
       }
     },
 
     retake() {
+      this.openRetake = false;
       this.openResult = false;
       this.resetFields();
       this.cardIndex = 0;
