@@ -221,7 +221,7 @@ export default {
         selectedSubject: null,
         correctAnswer: null,
         questionType: "mcq",
-        difficulty: null,
+        difficulty: "2",
         question: "",
         choice: {
           A: null,
@@ -256,7 +256,7 @@ export default {
     resetFields() {
       this.payload.correctAnswer = null;
       this.payload.question = null;
-      this.payload.difficulty = null;
+      this.payload.difficulty = "2";
       this.labels.forEach((label) => {
         this.payload.choice[label] = null;
       });
@@ -278,9 +278,14 @@ export default {
 
     async save(payload) {
       if (payload.questionType == "mcq") {
-        payload.correctAnswer = payload.choice[this.selectedChoice];
+        if (this.selectedChoice != null) {
+          payload.correctAnswer = payload.choice[this.selectedChoice];
+        } else {
+          alert(`Correct Answer is required.`);
+          return;
+        }
       }
-
+      console.log("CHOICE", this.selectedChoice);
       const requiredFields = [
         "selectedSubject",
         "correctAnswer",
