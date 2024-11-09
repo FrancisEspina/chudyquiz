@@ -131,12 +131,7 @@
               <!-- IDENTIFY -->
               <div v-else>
                 <div class="mt-8 ma-auto" style="width: 75%">
-                  <v-text-field
-                    v-model="stringAnswer"
-                    @keydown.enter="
-                      checkAnswer(null, questions[cardIndex], stringAnswer)
-                    "
-                  ></v-text-field>
+                  <v-text-field v-model="stringAnswer"></v-text-field>
                   <div v-if="openOverlay" class="text-green">
                     <h4>
                       Correct Answer: {{ questions[cardIndex].correct_answer }}
@@ -145,7 +140,7 @@
                   <br />
 
                   <v-btn
-                    v-if="openOverlay == false"
+                    v-if="submitButton"
                     @click="
                       checkAnswer(null, questions[cardIndex], stringAnswer)
                     "
@@ -167,12 +162,20 @@
               ></v-btn>
               <v-spacer></v-spacer>
               <v-btn
+                append-icon="mdi mdi-database"
+                variant="tonal"
+                color="white"
+                @click="openResult = true"
+                >View Scores</v-btn
+              >
+              <v-btn
                 append-icon="mdi mdi-refresh-circle"
                 variant="tonal"
                 color="white"
                 @click="retake"
                 >RETAKE</v-btn
               >
+
               <v-btn
                 append-icon="mdi mdi-open-in-new"
                 variant="tonal"
@@ -357,6 +360,7 @@ export default {
       max: 6,
       labels: ["A", "B", "C", "D", "E", "F"], // Define your labels here
 
+      submitButton: true,
       questionLength: null,
       questions: null,
       selectedSubject: null,
@@ -414,10 +418,12 @@ export default {
         this.openResult = true;
         this.openRetake = true;
         this.passedTest = this.score >= 75 ? true : false;
+        this.submitButton = false;
       }
     },
 
     retake() {
+      this.submitButton = true;
       this.openRetake = false;
       this.openResult = false;
       this.resetFields();
@@ -449,6 +455,7 @@ export default {
       this.correctLabel = null;
       this.isCorrect = false;
       this.stringAnswer = null;
+      this.submitButton = true;
     },
     checkAnswer(label = null, question, answer) {
       this.isDisabled = true;
@@ -477,6 +484,7 @@ export default {
       }
 
       this.openOverlay = true;
+      this.submitButton = false;
     },
 
     processQuestions(raw_questions, items) {

@@ -9,7 +9,7 @@
         <div>
           <v-icon size="40">mdi mdi-cat</v-icon>
           <h1 style="font-size: 24px">ChudyQUIZ</h1>
-          <h1>Add Questions</h1>
+          <h1>Review</h1>
         </div>
       </router-link>
 
@@ -35,153 +35,17 @@
       </v-select>
     </div>
     <v-row v-if="payload.selectedSubject">
-      <v-col cols="12" lg="6">
-        <div>
-          <v-card color="transparent" style="border: 1px solid" class="my-5">
-            <div class="pa-10">
-              <div class="mb-5">
-                <h2>
-                  <b>Create Question </b>
-                  <v-chip>
-                    {{ payload.selectedSubject }}
-                  </v-chip>
-                </h2>
-              </div>
-              <br />
-              <v-row>
-                <v-col>
-                  Question Type
-                  <v-radio-group inline v-model="payload.questionType">
-                    <v-radio label="Multiple Choice" value="mcq"></v-radio>
-                    <v-radio label="Identification" value="identify"></v-radio>
-                  </v-radio-group>
-                </v-col>
-                <v-col>
-                  Difficulty
-                  <v-radio-group v-model="payload.difficulty">
-                    <v-radio label="Easy" value="1"></v-radio>
-                    <v-radio label="Average" value="2"></v-radio>
-                    <v-radio label="Difficult" value="3"></v-radio>
-                  </v-radio-group>
-                </v-col>
-              </v-row>
-              <br />
-
-              <br />
-              <v-textarea
-                variant="outlined"
-                rounded="xl"
-                v-model="payload.question"
-                label="Question"
-              ></v-textarea>
-
-              <!-- Choices/Answer -->
-              <div v-if="payload.questionType == 'mcq'">
-                <v-row no-gutters>
-                  <v-col
-                    v-for="(label, index) in labels.slice(0, max)"
-                    :key="index"
-                    cols="12"
-                    sm="6"
-                  >
-                    <v-text-field
-                      class="mx-4"
-                      density="default"
-                      :label="label"
-                      v-model="payload.choice[label]"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-
-                <br />
-                <v-row>
-                  <v-col>
-                    <v-select
-                      width="200px"
-                      label="Correct Answer"
-                      :items="labels.slice(0, max)"
-                      variant="outlined"
-                      v-model="selectedChoice"
-                    ></v-select>
-                  </v-col>
-                  <v-col>
-                    <br />
-                    Add Choices
-                    <v-btn-group>
-                      <v-btn
-                        class="mx-2"
-                        @click="maxFunction(true)"
-                        rounded="lg"
-                        color="white"
-                        icon="mdi mdi-plus"
-                        variant="flat"
-                      ></v-btn>
-                      <v-btn
-                        @click="maxFunction(false)"
-                        rounded="lg"
-                        color="white"
-                        icon="mdi mdi-minus"
-                        variant="flat"
-                      ></v-btn>
-                    </v-btn-group>
-                  </v-col>
-                </v-row>
-              </div>
-              <div v-else>
-                <v-text-field
-                  v-model="payload.correctAnswer"
-                  label="Answer"
-                  density="default"
-                ></v-text-field>
-              </div>
-              <v-card-actions class="justify-end w-100">
-                <v-btn
-                  @click="save(payload)"
-                  width="100"
-                  append-icon="mdi mdi-plus"
-                  variant="flat"
-                  color="blue"
-                  >ADD
-                </v-btn>
-              </v-card-actions>
-            </div>
-          </v-card>
-        </div>
-        <v-card variant="outlined">
-          <div class="pa-10">
-            <div class="mb-5">
-              <h2>
-                <b>Seed from CSV </b>
-              </h2>
-            </div>
-            <v-file-input
-              v-model="csv"
-              variant="outlined"
-              rounded="xl"
-              label="Upload CSV"
-            ></v-file-input>
-            <v-card-actions class="justify-end">
-              <v-btn
-                :disabled="csv != null ? false : true"
-                append-icon="mdi mdi-seed"
-                variant="flat"
-                @click="seed(csv)"
-                >SEED</v-btn
-              >
-            </v-card-actions>
-          </div>
-        </v-card>
-      </v-col>
       <v-col>
-        <div class="mt-12" style="height: 90vh; overflow-y: scroll">
+        <div class="" style="height: 90vh; overflow-y: scroll">
           <v-card
+            width="1500px"
             color="transparent"
             style="border: 1px solid"
-            class="ma-5"
+            class="my-16 mx-auto"
             v-for="(item, index) in questions"
             :key="item"
           >
-            <div class="pa-5">
+            <div class="pa-12">
               <div class="float-start">
                 <div class="d-flex align-center">
                   <div class="me-2">
@@ -201,7 +65,7 @@
               <br />
               <v-card>
                 <div class="pa-7">
-                  <p style="font-size: 11pt">
+                  <p style="font-size: 14pt">
                     {{ item.question }}
                   </p>
                 </div>
