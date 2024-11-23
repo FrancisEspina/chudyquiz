@@ -394,9 +394,11 @@ export default {
 
   mounted() {
     this.getAllSubjects();
+    this.scoreTracker = 0;
   },
   methods: {
     reloadPage() {
+      this.scoreTracker = 0;
       window.location.reload();
     },
     notify() {
@@ -423,13 +425,13 @@ export default {
     },
 
     retake() {
+      this.scoreTracker = 0;
       this.submitButton = true;
       this.openRetake = false;
       this.openResult = false;
       this.resetFields();
       this.cardIndex = 0;
       this.questions = this.randomize(this.questions);
-      this.scoreTracker = 0;
     },
 
     preprocess(input) {
