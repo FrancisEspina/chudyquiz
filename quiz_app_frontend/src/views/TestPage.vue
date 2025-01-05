@@ -23,7 +23,7 @@
         :to="'/'"
         >Home</v-btn
       >
-      <div class="mt-5">
+      <div v-if="!testReady" class="mt-5">
         <div style="min-width: 300px; max-width: 500px" class="d-flex ma-auto">
           <v-select
             class="float-start me-5"
@@ -37,7 +37,7 @@
           >
           </v-select>
           <v-text-field
-            :disabled="selectedSubject ? false : true"
+            :disabled="!raw_questions"
             v-model="numberOfItems"
             class="float-start"
             width="300px"
@@ -50,9 +50,23 @@
           >
           </v-text-field>
         </div>
+        <div class="d-flex justify-center">
+          <v-card
+            variant="outlined"
+            v-if="raw_questions"
+            class="text-center px-5 py-2"
+          >
+            <b class="text-green">{{ raw_questions.length }}</b> Total Questions
+          </v-card>
+        </div>
       </div>
     </div>
-
+    <div v-if="testReady" class="d-flex align-center justify-end ga-2">
+      Items
+      <v-card variant="flat" color="blue" class="pa-3">
+        {{ cardIndex + 1 }} of {{ numberOfItems }}
+      </v-card>
+    </div>
     <div class="rounded-xl ma-auto" style="height: 100%">
       <div v-if="isQuestions">
         <div v-if="testReady">
@@ -114,12 +128,14 @@
                             : ''
                         "
                       >
-                        <div class="pa-5">
-                          <v-chip class="bg-white float-start mb-5"
-                            ><b>{{ label }}</b></v-chip
+                        <div class="d-flex align-center pa-5">
+                          <v-btn size="35" color="yellow"
+                            ><b>{{ label }}</b></v-btn
                           >
-                          <div class="mt-1">
-                            {{ questions[cardIndex].choices[0][label] }}
+                          <div class="mt-1 text-start">
+                            <p class="ms-3">
+                              {{ questions[cardIndex].choices[0][label] }}
+                            </p>
                           </div>
                         </div>
                       </v-card>
@@ -291,7 +307,7 @@
         v-if="openOverlay"
         style="border-radius: 50px"
         :rounded="'false'"
-        width="400px"
+        max-width="700px"
       >
         <div class="pa-16">
           <div class="text-center">
@@ -304,6 +320,18 @@
               >{{ isCorrect ? "mdi mdi-check-circle" : "mdi mdi-close-circle" }}
             </v-icon>
             <br />
+
+            <v-card variant="outlined" class="mt-3 px-3 py-5">
+              <v-chip class="mb-5">
+                <p>Reason</p>
+              </v-chip>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est
+                iure repellendus ducimus nobis, veniam mollitia nulla, vel autem
+                quod rem optio. Fugiat optio nisi aut placeat officiis rerum ab
+                expedita.
+              </p>
+            </v-card>
             <v-btn
               @click="nextQuestion"
               class="mt-10"
@@ -356,7 +384,7 @@ export default {
       numberOfItems: null,
       testReady: false,
       cardIndex: 0,
-      minimumItems: 3,
+      minimumItems: 5,
       max: 6,
       labels: ["A", "B", "C", "D", "E", "F"], // Define your labels here
 

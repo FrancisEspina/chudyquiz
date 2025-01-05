@@ -7,7 +7,9 @@
       <v-icon size="100">mdi mdi-cat</v-icon>
       <h1 style="font-size: 3em">ChudyQUIZ</h1>
 
-      <p style="font-size: 15pt">I Love You! Study well 🩷😘</p>
+      <p style="font-size: 15pt">Study well, Chudy! 🩷😘</p>
+      <!-- <p style="font-size: 15pt">I Love You! Study well 🩷😘</p> -->
+
       <br />
 
       <div class="mx-auto">

@@ -34,54 +34,58 @@
       >
       </v-select>
     </div>
-    <v-row v-if="payload.selectedSubject">
-      <v-col>
-        <div class="" style="height: 90vh; overflow-y: scroll">
-          <v-card
-            width="1500px"
-            color="transparent"
-            style="border: 1px solid"
-            class="my-16 mx-auto"
-            v-for="(item, index) in questions"
-            :key="item"
-          >
-            <div class="pa-12">
-              <div class="float-start">
-                <div class="d-flex align-center">
-                  <div class="me-2">
-                    <h2>
-                      <b> Question #{{ index + 1 }}</b>
-                    </h2>
+    <div
+      style="height: 100vh; overflow-y: auto; overflow-x: hidden"
+      class="my-10"
+      v-if="payload.selectedSubject"
+    >
+      <v-row>
+        <v-col cols="12" v-for="(item, index) in questions" :key="item">
+          <div>
+            <v-card
+              class="ma-auto"
+              max-width="800px"
+              color="transparent"
+              style="border: 1px solid"
+            >
+              <div class="pa-12">
+                <div class="float-start">
+                  <div class="d-flex align-center">
+                    <div class="me-2">
+                      <h2>
+                        <b> Question #{{ index + 1 }}</b>
+                      </h2>
+                    </div>
+                    <v-chip class="me-2"> {{ item.difficulty }} </v-chip>
                   </div>
-                  <v-chip class="me-2"> {{ item.difficulty }} </v-chip>
                 </div>
-              </div>
-              <br />
-              <div class="float-end">
-                <v-icon @click="deleteQuestion(item.id)" color=""
-                  >mdi mdi-close</v-icon
-                >
-              </div>
-              <br />
-              <v-card>
-                <div class="pa-7">
-                  <p style="font-size: 14pt">
-                    {{ item.question }}
-                  </p>
+                <br />
+                <div class="float-end">
+                  <v-icon @click="deleteQuestion(item.id)" color=""
+                    >mdi mdi-close</v-icon
+                  >
                 </div>
-              </v-card>
-              <div class="pa-3">
-                <v-chip class="me-2" rounded="lg"> Answer</v-chip>
-                <b>
-                  {{ item.correct_answer }}
-                </b>
+                <br />
+                <v-card>
+                  <div class="pa-7">
+                    <p style="font-size: 14pt">
+                      {{ item.question }}
+                    </p>
+                  </div>
+                </v-card>
+                <div class="pa-3">
+                  <v-chip class="me-2" rounded="lg"> Answer</v-chip>
+                  <b>
+                    {{ item.correct_answer }}
+                  </b>
+                </div>
+                <br />
               </div>
-              <br />
-            </div>
-          </v-card>
-        </div>
-      </v-col>
-    </v-row>
+            </v-card>
+          </div>
+        </v-col>
+      </v-row>
+    </div>
 
     <v-container v-else class="justify-center align-center">
       <div class="text-center">

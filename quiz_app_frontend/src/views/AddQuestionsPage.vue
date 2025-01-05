@@ -126,6 +126,13 @@
                     </v-btn-group>
                   </v-col>
                 </v-row>
+                <br />
+                <v-textarea
+                  v-model="payload.reason"
+                  label="Reason"
+                  rounded="xl"
+                  variant="outlined"
+                ></v-textarea>
               </div>
               <div v-else>
                 <v-text-field
@@ -137,11 +144,10 @@
               <v-card-actions class="justify-end w-100">
                 <v-btn
                   @click="save(payload)"
-                  width="100"
                   append-icon="mdi mdi-plus"
                   variant="flat"
                   color="blue"
-                  >ADD
+                  >Save Question
                 </v-btn>
               </v-card-actions>
             </div>
@@ -248,6 +254,7 @@ export default {
       payload: {
         selectedSubject: null,
         correctAnswer: null,
+        reason: null,
         questionType: "mcq",
         difficulty: "2",
         question: "",
