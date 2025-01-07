@@ -307,6 +307,7 @@
         v-if="openOverlay"
         style="border-radius: 50px"
         :rounded="'false'"
+        min-width="500px"
         max-width="700px"
       >
         <div class="pa-16">
@@ -320,16 +321,17 @@
               >{{ isCorrect ? "mdi mdi-check-circle" : "mdi mdi-close-circle" }}
             </v-icon>
             <br />
-
-            <v-card variant="outlined" class="mt-3 px-3 py-5">
+            <!-- REASONS AREA -->
+            <v-card
+              v-if="questions[cardIndex].reason"
+              variant="outlined"
+              class="mt-3 px-5 py-5"
+            >
               <v-chip class="mb-5">
                 <p>Reason</p>
               </v-chip>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est
-                iure repellendus ducimus nobis, veniam mollitia nulla, vel autem
-                quod rem optio. Fugiat optio nisi aut placeat officiis rerum ab
-                expedita.
+              <p style="text-align: justify">
+                {{ questions[cardIndex].reason }}
               </p>
             </v-card>
             <v-btn

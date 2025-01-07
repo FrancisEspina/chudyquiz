@@ -51,7 +51,8 @@ class QuestionController extends Controller
 
             $answer = Answer::create([
                 'question_id' => $question->id,
-                'answer' => $data['answer']
+                'answer' => $data['answer'],
+                'reason' => $data['reason']
             ]);
 
             $answer->save();
@@ -99,7 +100,8 @@ class QuestionController extends Controller
 
         $answer = Answer::create([
             'question_id' => $new_question['id'],
-            'answer' => $questionData['correctAnswer']
+            'answer' => $questionData['correctAnswer'],
+            'reason' => $questionData['reason']
         ]);
 
         return response()->json([
@@ -134,7 +136,8 @@ class QuestionController extends Controller
                         'F' => $choice->F,
                     ];
                 }),
-                'correct_answer' => $question->correct_answer?->answer
+                'correct_answer' => $question->correct_answer?->answer,
+                'reason' => $question->correct_answer?->reason,
 
             ];
         });

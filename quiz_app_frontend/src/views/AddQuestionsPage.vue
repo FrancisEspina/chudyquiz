@@ -34,6 +34,15 @@
       >
       </v-select>
     </div>
+    <div class="d-flex justify-end">
+      <v-chip
+        @click="showReason = !showReason"
+        :color="showReason ? 'red' : 'green'"
+        rounded="lg"
+      >
+        {{ showReason ? "Hide" : "Show" }} Reason</v-chip
+      >
+    </div>
     <v-row v-if="payload.selectedSubject">
       <v-col cols="12" lg="6">
         <div>
@@ -140,6 +149,13 @@
                   label="Answer"
                   density="default"
                 ></v-text-field>
+
+                <v-textarea
+                  v-model="payload.reason"
+                  label="Reason"
+                  rounded="xl"
+                  variant="outlined"
+                ></v-textarea>
               </div>
               <v-card-actions class="justify-end w-100">
                 <v-btn
@@ -179,7 +195,7 @@
         </v-card>
       </v-col>
       <v-col>
-        <div class="mt-12" style="height: 90vh; overflow-y: scroll">
+        <div class="mt-5" style="height: 90vh; overflow-y: scroll">
           <v-card
             color="transparent"
             style="border: 1px solid"
@@ -188,23 +204,22 @@
             :key="item"
           >
             <div class="pa-5">
-              <div class="float-start">
-                <div class="d-flex align-center">
-                  <div class="me-2">
-                    <h2>
-                      <b> Question #{{ index + 1 }}</b>
-                    </h2>
-                  </div>
+              <div class="d-flex">
+                <div class="d-flex ga-2">
+                  <h2>
+                    <b> Question #{{ index + 1 }}</b>
+                  </h2>
                   <v-chip class="me-2"> {{ item.difficulty }} </v-chip>
+                </div>
+                <v-spacer />
+                <div>
+                  <v-icon @click="deleteQuestion(item.id)" color=""
+                    >mdi mdi-close</v-icon
+                  >
                 </div>
               </div>
               <br />
-              <div class="float-end">
-                <v-icon @click="deleteQuestion(item.id)" color=""
-                  >mdi mdi-close</v-icon
-                >
-              </div>
-              <br />
+
               <v-card>
                 <div class="pa-7">
                   <p style="font-size: 11pt">
@@ -212,12 +227,24 @@
                   </p>
                 </div>
               </v-card>
-              <div class="pa-3">
-                <v-chip class="me-2" rounded="lg"> Answer</v-chip>
+              <div class="pa-3 d-flex align-center ga-2">
+                <v-chip class="" rounded="lg"> Answer</v-chip>
                 <b>
                   {{ item.correct_answer }}
                 </b>
+                <v-spacer />
               </div>
+              <v-card
+                max-width="400px"
+                v-if="showReason"
+                style="font-size: 10pt"
+                rounded="lg"
+                variant="tonal"
+                class="pa-3 ma-auto"
+              >
+                {{ item.reason ? item.reason : "Reason Not Provided" }}
+              </v-card>
+
               <br />
             </div>
           </v-card>
@@ -244,6 +271,7 @@ import { getSubjects } from "../router/api/subjectRoutes.js"; // Adjust the path
 export default {
   data() {
     return {
+      showReason: false,
       csv: null,
       questions: [],
       max: 4,
@@ -308,6 +336,7 @@ export default {
       console.log(response);
     },
     resetFields() {
+      this.payload.reason = null;
       this.payload.correctAnswer = null;
       this.payload.question = null;
       this.payload.difficulty = "2";
@@ -346,6 +375,7 @@ export default {
         "questionType",
         "difficulty",
         "question",
+        "reason",
       ];
 
       // Check if any of the required fields are null or empty
